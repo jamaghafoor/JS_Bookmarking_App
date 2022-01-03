@@ -1,0 +1,136 @@
+body {
+    background-image: url('coverimg.jpg');
+    background-size: cover;
+    padding: 30px;
+}
+
+.floater {
+    background-color: #fff;
+    border-radius: 5px;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+    z-index: 11;
+    margin-bottom: 50px;
+    line-height: 1.5;
+    font-size: 19px;
+    border: none;
+    max-width: 430px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.floater input[type=text] {
+    padding: 40px 20px;
+    font-size: 14px;
+    border: none;
+    /* box-shadow: none; */
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+}
+
+.floater-bottom {
+    border-top: 1px solid rgb(226, 222, 222);
+    padding: 7px 10px;
+    text-align: right;
+}
+
+.overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: 0.3s ease opacity;
+    z-index: 10;
+    pointer-events: none;
+}
+
+body.show-floater .floater {
+    transform: scale(1.1);
+}
+
+body.show-floater .floater input[type=text] {
+    padding: 50px 20px;
+    font-size: 16px;
+}
+
+body.show-floater .overlay {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/*=======================*/
+.bookmark-list {
+    z-index: 9;
+    margin: 20px;
+}
+
+img {
+    height: 100px;
+    width: 100%;
+}
+
+div [class^="col-"] {
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.card {
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.card-title {
+    font-size: 15px;
+    transition: 1s;
+    cursor: pointer;
+
+}
+
+.card-title i {
+    font-size: 15px;
+    transition: 1s;
+    cursor: pointer;
+    color: #ffa710
+}
+
+.card-title i:hover {
+    transform: scale(1.25) rotate(100deg);
+    color: #18d4ca;
+
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+.card::before,
+.card::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: scale3d(0, 0, 1);
+    transition: transform .3s ease-out 0s;
+    background: rgba(255, 255, 255, 0.1);
+    content: '';
+    pointer-events: none;
+}
+
+.card::before {
+    transform-origin: left top;
+}
+
+.card::after {
+    transform-origin: right bottom;
+}
+
+.card:hover::before,
+.card:hover::after,
+.card:focus::before,
+.card:focus::after {
+    transform: scale3d(1, 1, 1);
+}
